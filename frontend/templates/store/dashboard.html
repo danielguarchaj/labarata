@@ -1,0 +1,51 @@
+{% extends 'store/global/base.html' %}
+{% load static %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+<div class="content">
+  <!-- Animated -->
+  <div class="animated fadeIn">
+    {% comment %} <div class="clearfix"></div> {% endcomment %}
+    <!-- Orders -->
+    <div class="orders">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="box-title">Ventas del día</h4>
+            </div>
+            <div class="card-body--">
+              <div class="table-stats order-table ov-h">
+                <table class="table ">
+                  <thead>
+                    <tr>
+                      <th class="">#</th>
+                      <th class="">Cliente</th>
+                      <th>Total</th>
+                      <th>Opciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="sales-report">
+
+                  </tbody>
+                </table>
+              </div> <!-- /.table-stats -->
+            </div>
+          </div> <!-- /.card -->
+        </div> <!-- /.col-lg-8 -->
+      </div>
+    </div>
+    <!-- /.orders -->
+  </div>
+  <!-- .animated -->
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'store/dashboard.js' %}"></script>
+{% endblock %}

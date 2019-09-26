@@ -1,0 +1,79 @@
+{% extends 'store/global/base.html' %}
+{% load static %}
+
+{% block title %}
+Detalle Venta
+{% endblock %}
+
+{% block content %}
+<div class="content">
+  <!-- Animated -->
+  <div class="animated fadeIn">
+    {% comment %} <div class="clearfix"></div> {% endcomment %}
+    <!-- New Sale -->
+    <div class="">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header">
+              <strong class="card-title">Detalles de la venta</strong>
+            </div>
+            <div class="card-body">
+              <!-- Nueva venta -->
+              <div id="">
+                <div class="card-body">
+                  <div class="">
+                    <h3 class="text-left">Venta #{{sale.sale_number}}</h3>
+                    <h3 class="text-right">Cliente: {{sale.client.name}} | NIT: {{sale.client.nit}}</h3>
+                  </div>
+                  <hr>
+                  <table class="table ">
+                    <thead>
+                      <tr>
+                        <th class="serial">Codigo</th>
+                        <th class="avatar">Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Precio Venta</th>
+                        <th>Subtotal</th>
+                      </tr>
+                    </thead>
+                    <tbody id="sale-products-added">
+                      {% for detail in sale_detail %}
+                        <tr>
+                          <td> <span >{{detail.product.barcode}}</span></td>
+                          <td> <span >{{detail.product.description}}</span> </td>
+                          <td> <span >{{detail.unit}}</span> </td>
+                          <td> <span >{{detail.sale_price}}</span> </td>
+                          <td> <span >{{detail.subtotal}}</span></td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  <hr>
+                  <div class="">
+                    <h3 class="text-right">TOTAL: Q{{sale.total}}</h3>
+                  </div>
+                </div> <!-- /.table-stats -->
+              </div>
+            </div>
+          </div>
+        </div> <!-- .card -->
+
+      </div>
+    </div>
+  </div>
+  <!-- /.new sale -->
+</div>
+<!-- .animated -->
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script src="{% static 'store/sale.js' %}"></script>
+
+<!--Local Stuff-->
+<script>
+</script>
+
+{% endblock %}

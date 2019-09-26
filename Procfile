@@ -1,0 +1,1 @@
+web: gunicorn labarata.wsgi
